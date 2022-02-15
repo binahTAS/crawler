@@ -1,5 +1,6 @@
 import {CRAWLER} from "../../globalutils/ConsoleNames";
 import {requestWikipedia} from "./tests/TestConnection";
+import {crawl} from "./net/Scraper";
 
 console.log(`${CRAWLER} Initializing.`)
 
@@ -10,6 +11,10 @@ const init = async () => {
         process.exit(0);
     }
     console.log(`${CRAWLER} Tests ran successfully.`)
+    console.log(`${CRAWLER} Starting crawler...`)
+    await crawl('https://en.wikipedia.org/wiki/Bring_Me_the_Horizon')
 }
 
-init()
+init().then(r => {
+    console.log(`${CRAWLER} Exiting...`)
+})
