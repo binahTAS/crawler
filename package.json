@@ -1,0 +1,20 @@
+{
+  "name": "crawler",
+  "version": "1.0.0",
+  "description": "Web-Scraping service to scan through wikipedia in order to find relations between articles.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "run": "ts-node src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/binahTAS/crawler.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/binahTAS/crawler/issues"
+  },
+  "homepage": "https://github.com/binahTAS/crawler#readme"
+}
