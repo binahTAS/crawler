@@ -19,6 +19,7 @@
   "homepage": "https://github.com/binahTAS/crawler#readme",
   "dependencies": {
     "@types/node": "^17.0.18",
-    "axios": "^0.26.0"
+    "axios": "^0.26.0",
+    "mongoose": "^6.2.1"
   }
 }
