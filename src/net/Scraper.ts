@@ -28,8 +28,6 @@ export const crawl = async (url: string) => {
                     return obj;
                 }).clone()
 
-                console.log(`${CRAWLER} Layer ${depth}/${scanned} (${scanned - depth}) | Already saved.`)
-
                 if(existing.length === 0) {
                     scanned++;
                     //console.log(`${(`${config.wikiUrl}${matches[1]}` === url)} || ${config.wikiUrl}${matches[1]} || ${url}`)
@@ -45,7 +43,6 @@ export const crawl = async (url: string) => {
                     await crawl(`${config.wikiUrl}${matches[1]}`)
                 }
             }else {
-                console.log(`${CRAWLER} [EXITING] Layer ${depth}/${scanned} (${scanned - depth})`)
                 break;
             }
         }
