@@ -1,11 +1,14 @@
 import {CRAWLER} from "../../globalutils/ConsoleNames";
-import {requestWikipedia, testRegex} from "./tests/TestConnection";
-import {crawl} from "./net/Scraper";
+import {requestWikipedia} from "./tests/TestConnection";
+import {crawl, crawlLight} from "./net/Scraper";
 import {doConn} from "./etc/Database";
 
 console.log(`${CRAWLER} Initializing.`)
 
 const init = async () => {
+
+    const light = true;
+
     console.log(`${CRAWLER} Testing connection to Wikipedia...`)
     if(!(await requestWikipedia())) {
         console.log(`${CRAWLER} Error while establishing connection. Wikipedia down?`)
@@ -20,7 +23,12 @@ const init = async () => {
     }
     console.log(`${CRAWLER} Connected to database.`)
 
-    console.log(`${CRAWLER} Starting crawler...`)
+    if(light === true) {
+        console.log(`${CRAWLER} Starting crawler in light mode.`)
+        await crawlLight('https://en.wikipedia.org/wiki/Bring_Me_the_Horizon', 'https://en.wikipedia.org/wiki/Wikipedia:Administrators%27_noticeboard/Archive202', 3)
+        return;
+    }
+    console.log(`${CRAWLER} Starting crawler in standard mode.`)
     await crawl('https://en.wikipedia.org/wiki/Bring_Me_the_Horizon')
 }
 
