@@ -6,7 +6,7 @@ const pathwaySchema = new Schema({
         required: true
     },
     "runId": {
-        type: Number,
+        type: String,
         required: true
     }
 })
